@@ -29,7 +29,7 @@
 		.idea
 		staticfiles
 	5. Create/Updated requirements.txt to include other known needed packages
-        * pip freeze > requireements.txt
+        * pip freeze > requirements.txt
         * pip install -r requriements.txt
     6. Convert settings.py to settings folder with `base.py', `dev.py`, and `production.py`
 	7. Create repo and commit (Add Readme.MD)
