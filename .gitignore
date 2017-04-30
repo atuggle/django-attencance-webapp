@@ -1,0 +1,10 @@
+*.pyc
+.DS_Store
+*.swp
+venv
+/venv/
+/static/
+/media/
+.env
+.idea
+staticfiles
