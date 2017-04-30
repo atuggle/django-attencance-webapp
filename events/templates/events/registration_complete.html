@@ -12,15 +12,22 @@
 
 <div>
     <div class='col-md-12'>
+        <div class='row col-12'>
+            <div class="col-12"><legend><h1>You have successfully registered:</h1></legend></div>
+        </div>
+        <div class='row col-12'>
+            <div class="col-4"></div>
+            <div class="col-4">Email: {{ attendee_email }}</div>
+            <div class="col-4"></div>
+        </div>
+        <br /><br />
         <form action="/events/{{ event.id }}/" name="id-successForm" id="id-successForm" method="get">
             {% csrf_token %}
-            <div class='col-md-12'>
-                <div class="col-12"><legend><h1>You have successfully registered:</h1></legend></div>
-                <div class="col-12">Email: {{ candidate_email }}</div>
-            </div>
-            <br /><br /><br />
-            <div class="col-12">
-                <input type="submit" name="submit" value="Done" class="btn btn-primary btn-default" id="submit-id-submit">
+
+            <div class="row col-12">
+                <div class="col-12">
+                    <input type="submit" name="submit" value="Done" class="btn btn-primary btn-default" id="submit-id-submit">
+                </div>
             </div>
         </form>
     </div>

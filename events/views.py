@@ -18,7 +18,7 @@ def detail(request, event_id):
     if request.method == 'POST':  # if this is a POST request we need to process the form data
         form = RegisterForm(request.POST)
         if form.is_valid():
-            attendee_email = update_or_create_attendee(request, form, event_id)
+            attendee_email = update_or_create_attendee(form, event_id)
             context = {'attendee_email': attendee_email, 'event': event}
             return render(request, 'events/registration_complete.html', context)
         else:
@@ -31,7 +31,7 @@ def detail(request, event_id):
     return render(request, 'events/detail.html', {'event': event, 'form': form})
 
 
-def update_or_create_attendee(request, form, event_id):
+def update_or_create_attendee(form, event_id):
     form_email = form.cleaned_data['attendee_email']
     form_first_name = form.cleaned_data['attendee_first_name']
     form_last_name = form.cleaned_data['attendee_last_name']
