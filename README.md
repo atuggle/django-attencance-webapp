@@ -50,3 +50,7 @@
             * Update settings.py to use postgres instead of sqllight
     10. Migrate db:
           * $ python manage.py migrate
+    11. Log into Heroku using cli
+        * heroku login
+    12. Create heroku app
+        * heroku create myregistration

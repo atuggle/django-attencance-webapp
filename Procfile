@@ -1,1 +1,1 @@
-web: gunicorn attender.wsgi
+web: gunicorn myregistration.wsgi
