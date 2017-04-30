@@ -54,3 +54,8 @@
         * heroku login
     12. Create heroku app
         * heroku create myregistration
+    13. Deploy to heroku
+        * $ git push heroku master
+        * $ heroku run python manage.py migrate
+        * $ heroku run python manage.py createsuperuser
+        
