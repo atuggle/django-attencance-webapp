@@ -35,8 +35,8 @@
 	7. Create repo and commit (Add Readme.MD)
 	8. Update manage.py to look for .env file
 	9. Prepare webapp for Heroku
-	    * Create "Procfile" on line of code:
-	            `web: gunicorn attender.wsgi`
+	    * Create "Procfile" on line of code (point to app.wsgi.py):
+	            `web: gunicorn attendance.wsgi`
 	    * Update settings.py to work with .env file
 	    * Convert project to postgres db
 	        * Create postgres DB 'attendance'
