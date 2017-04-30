@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'events',
     'tinymce',
     'crispy_forms',
     # Disable Django's own staticfiles handling in favour of WhiteNoise, for

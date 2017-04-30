@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Registration {% endblock %}
+
+{% block content %}
+<div class="starter-template">
+  <h1>Choose an Event to register with please</h1>
+  <hr />
+  {% for event in event_list %}
+      <div class='col-md-12'>
+        <div class='col-md-2'>{{ event.date_time }}</div>
+        <div class='col-md-6'><a href="{{ event.id }}/">{{ event.title }}</a></div>
+      </div>
+  {% endfor %}
+</div>
+{% endblock %}
