@@ -58,4 +58,15 @@
         * $ git push heroku master
         * $ heroku run python manage.py migrate
         * $ heroku run python manage.py createsuperuser
-        
+    14. Create events app inside django
+        * $ python manage.py startapp events
+    15. Update events app accodingly
+        * Update urls.py (both)
+        * Add app to "INSTALLED_APPS" settings.py
+        * Create models
+        * $ python manage.py makemigrations
+        * $ python manage.py migrate
+        * Create templates
+        * Code veiws.py to work with templates and models to serve up pages
+    16. Create registrations app
+        * $ python manage.py startapp registrations

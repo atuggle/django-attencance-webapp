@@ -1,0 +1,16 @@
+{% extends "registrationsbase.html" %}
+
+{% block title %} Registrations {% endblock %}
+
+{% block content %}
+<div class="starter-template">
+  <h1>Which Event would you like to manage registrations for?</h1>
+  <hr />
+  {% for event in event_list %}
+      <div class='col-md-12'>
+        <div class='col-md-2'>{{ event.date_time }}</div>
+        <div class='col-md-6'><a href="{{ event.id }}/">{{ event.title }}</a></div>
+      </div>
+  {% endfor %}
+</div>
+{% endblock %}

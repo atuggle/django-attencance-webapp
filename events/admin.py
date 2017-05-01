@@ -14,5 +14,5 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Event, EventAdmin)
 admin.site.register(models.Attendee, AttendeeAdmin)
-
+admin.site.register(models.Attendance)
 

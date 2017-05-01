@@ -48,7 +48,10 @@ def update_or_create_attendee(form, event_id):
 
     person.save()
 
-    attendance = Attendance.objects.filter(attendee=person).filter(event=event_attended)
+    attendance = Attendance.objects.filter(attendee=person).filter(event=event_attended).first()
+    print('####################')
+    print(attendance)
+    print('####################')
     if attendance is None:
         attendance = Attendance(attendee=person, event=event_attended)
         attendance.save()
