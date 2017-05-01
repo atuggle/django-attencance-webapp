@@ -15,7 +15,7 @@
 
     <div class='col-lg-12 row'>
       {% for attendance in attendance_list %}
-          <div class='col-lg-2'>{{ attendance.attendee.first_name }} &nbsp; {{ attendance.candidate.last_name }}</div>
+          <div class='col-lg-2'>{{ attendance.attendee.first_name }} &nbsp; {{ attendance.attendee.last_name }}</div>
           <div class='col-lg-2'>{{ attendance.attendee.email }}</div>
           <div class='col-lg-2'>{{ attendance.attendee.phone }}</div>
       {% endfor %}
