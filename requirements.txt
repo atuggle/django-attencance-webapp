@@ -12,3 +12,4 @@ pytz==2017.2
 sendgrid==4.0.0
 six==1.10.0
 whitenoise==3.2
+XlsxWriter==0.9.6
