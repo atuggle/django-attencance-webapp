@@ -19,6 +19,13 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <li><a href="/events/">All Active Events</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="/registrations">Manage Registrations</a></li>
+            <li><a href="/admin/">Admin Console</a></li>
+            <li><a href="/admin/logout/">logout</a></li>
+            {% else %}
+            <li><a href="/admin/login/">login</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>

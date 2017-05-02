@@ -1,5 +1,6 @@
-{% extends "registrationsbase.html" %}
+{% extends "base.html" %}%}
 {% load crispy_forms_tags %}
+{% crispy sendemail_form sendemail_form.helper %}
 
 {% block content %}
 <div class='col-lg-12 row'>
@@ -7,21 +8,67 @@
     <div class='col-md-3'><h1>{{ event.date_time }}</h1></div>
 </div>
 
-<div class='col-md-12'>
-  <div class='col-lg-12 row'>
-    <div><legend><h1>Registrations</h1></legend></div>
-    <div class='col-lg-6'><h3>Attendee</h3></div>
-  </div>
+<br /><br /><br />
+<br /><br /><br />
 
-    <div class='col-lg-12 row'>
-      {% for attendance in attendance_list %}
+<div>
+    <div class='col-md-12'>
+        <form action="/registrations/{{ event.id }}/" name="id-registrationForm" id="id-registrationForm" method="post">
+            {% csrf_token %}
+            {% crispy form form.helper %}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+              Send Emails
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Send Emails!</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>You are about to send {{ attendance_list|length }} emails.</p>
+                      <p>Are you sure?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onClick="submitEmailForm();">Send</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+    </div>
+
+    <br /><br /><br />
+    <br /><br /><br />
+    <br /><br /><br />
+
+    <div class='col-lg-12'>
+      <div class='col-lg-12 row'>
+        <div><legend><h1>Registrations</h1></legend></div>
+        <div class='col-lg-6'><h3>Attendee</h3></div>
+      </div>
+
         <div class='col-lg-12 row'>
-          <div class='col-4'>{{ attendance.attendee.first_name }} &nbsp; {{ attendance.attendee.last_name }}</div>
-          <div class='col-4'>{{ attendance.attendee.email }}</div>
-          <div class='col-4'>{{ attendance.attendee.phone }}</div>
+          {% for attendance in attendance_list %}
+            <div class='col-lg-12 row'>
+              <div class='col-lg-4'>{{ attendance.attendee.first_name }} &nbsp; {{ attendance.attendee.last_name }}</div>
+              <div class='col-lg-4'>{{ attendance.attendee.email }}</div>
+              <div class='col-lg-4'>{{ attendance.attendee.phone }}</div>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
     </div>
 </div>
 
+<script type="text/javascript">
+
+    function submitEmailForm() {
+        HTMLFormElement.prototype.submit.call($('#id-registrationForm')[0]);
+    }
+
+</script>
 {% endblock %}
